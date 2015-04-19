@@ -48,15 +48,16 @@ def mcConnect(myServer):
 
     return minecraft.Minecraft.create(myServer)
 
-def whereAmI(myId):
+def whereAmI(myServer, myId):
     """
     Where is our player located?
     Input: Connection handle and Entity ID of player
     Returns: Position of player
     """
 
-    print(mc)
+    mc = mcConnect(myServer)
     pos = mc.entity.getTilePos(myId)
+    print("I am at tile x=" + str(pos.x) + " y=" + str(pos.y) + " z=" + str(pos.z))
     mc.postToChat("I am at tile x=" + str(pos.x) + " y=" + str(pos.y) + " z=" + str(pos.z))
     
     return pos
