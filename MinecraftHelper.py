@@ -34,7 +34,7 @@ while True:
     elif (choice == 2):
         mcFN.buildHouse(myId)
     elif (choice == 3):
-        mcFN.poopDiamond(myId)
+        mcFN.poopDiamond(myServer, myId)
     elif (choice == 0):
         exit(0)
     else:

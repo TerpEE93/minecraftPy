@@ -106,14 +106,24 @@ def buildHouse(myConn, myId):
 
     return
 
-def poopDiamond(myConn, myId):
+def poopDiamond(myServer, myId):
     """
     Drop a diamond behind the player.
     Input: Connection handle and Entity ID of player
     Returns: Nothing
     """
 
-    mc.postToChat("Sorry, doesn't work yet...")
+    mc = mcConnect(myServer)
+    pos = mc.entity.getTilePos(myId)
+    myDir = mc.entity.getDirection(myId)
+
+    x = int(round(myDir.x, 0))
+    y = int(round(myDir.y, 0))
+    z = int(round(myDir.z, 0))
+
+    mc.setBlock((pos.x - x), (pos.y - y), (pos.z - z), block.DIAMOND_ORE)
+    
+    mc.postToChat("Look behind you!")
 
     return
 
