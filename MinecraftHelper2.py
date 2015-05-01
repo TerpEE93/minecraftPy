@@ -9,7 +9,7 @@ import mcGreg.mcFunctions2 as mcFN
 from mcGreg.mcConnect import mcConnect
 import mcpi.minecraft as minecraft
 
-actions = ["Quit.", "Where am I?", "Build a house.", "Poop a diamond."]
+actions = ["Quit.", "Where am I?", "Build a house.", "Poop an ore."]
 choice = -1
 myPos = (0, 0, 0)
 
@@ -34,7 +34,7 @@ while True:
     elif (choice == 2):
         mcFN.buildHouse(serverResults)
     elif (choice == 3):
-        mcFN.poopDiamond(serverResults)
+        mcFN.poopOre(serverResults)
     elif (choice == 0):
         exit(0)
     else:
