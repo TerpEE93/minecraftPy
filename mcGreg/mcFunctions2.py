@@ -94,6 +94,7 @@ def poopOre(serverResults):
                   ["Iron", block.IRON_ORE],
                   ["Gold", block.GOLD_ORE],
                   ["Diamond", block.DIAMOND_ORE],
+                  ["Glowstone", block.GLOWSTONE_BLOCK],
                   ["Random", random.randint(0,255)]]
     oreList = list(enumerate(oreChoices, start = 1))
 

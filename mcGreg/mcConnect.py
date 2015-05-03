@@ -19,9 +19,11 @@ def mcConnect():
     """
 
     myServer = getServer()
-    myId = getId()
+    mc = minecraft.Minecraft.create(myServer)
 
-    return (minecraft.Minecraft.create(myServer), myId) 
+    myId = getId(mc)
+
+    return (mc, myId) 
 
 """
 Support functions below.
@@ -38,13 +40,20 @@ def getServer():
 
 	return socket.gethostbyname(myServer)
 
-def getId():
-	ID = None
+def getId(mc):
+	myId = None
 
-	while True:
+	entityIDs = mc.getPlayerEntityIds()
+
+	print("Here are the entity IDs currently connected:")
+	for entityID in entityIDs:
+		print(entityID)
+
+	while myId == None:
 		try:
-			myId = int(raw_input("What is your entity ID? [" + str(ID) + "]: ") or ID)
-			break
+			i = int(raw_input("What is your entity ID? [" + str(myId) + "]: "))
+			if i in entityIDs:
+				myId = i
 		except ValueError:
 			print 'Please enter an integer for the entity ID.'
 
